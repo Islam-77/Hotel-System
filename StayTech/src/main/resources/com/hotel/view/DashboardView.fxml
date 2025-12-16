@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.hotel.controller.DashboardController"
+            stylesheets="@dashboard.css">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="900.0"
+              styleClass="top-bar" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="StayTech Management" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                </Label>
+
+                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="welcomeLabel" text="Welcome, User" textFill="WHITE">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets right="30.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0"
+              styleClass="center-bg" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+            </padding>
+
+            <children>
+                <Label text="Dashboard Quick Actions" textFill="#2c3e50">
+                    <font>
+                        <Font name="System Bold" size="22.0"/>
+                    </font>
+                </Label>
+
+                <Separator prefWidth="200.0"/>
+
+                <HBox spacing="20.0" alignment="CENTER_LEFT">
+                    <children>
+
+                        <!-- FRONT DESK BOX -->
+                        <VBox fx:id="frontDeskBox" alignment="CENTER" prefHeight="280.0" prefWidth="200.0"
+                              spacing="10.0" styleClass="card">
+                            <children>
+                                <Label text="Front Desk" textFill="#7f8c8d">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+
+                                <Button fx:id="newBookingButton" mnemonicParsing="false"
+                                        onAction="#handleNewBooking"
+                                        styleClass="btn-dark"
+                                        text="New Room Booking">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                </Button>
+
+                                <Button fx:id="newRentalButton" mnemonicParsing="false"
+                                        onAction="#handleNewRental"
+                                        styleClass="btn-dark"
+                                        text="New Car Rental">
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="paymentButton" mnemonicParsing="false"
+                                        onAction="#handleProcessPayment"
+                                        styleClass="btn-dark"
+                                        text="Process Payment">
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="roomStatusButton" mnemonicParsing="false"
+                                        onAction="#handleUpdateRoomStatus"
+                                        styleClass="btn-dark"
+                                        text="Update Room Status">
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="carStatusButton" mnemonicParsing="false"
+                                        onAction="#handleUpdateCarStatus"
+                                        styleClass="btn-dark"
+                                        text="Update Car Status">
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </VBox>
+
+                        <!-- RESTAURANT BOX -->
+                        <VBox fx:id="restaurantBox" alignment="CENTER" prefHeight="280.0" prefWidth="220.0"
+                              spacing="10.0" styleClass="card">
+                            <children>
+                                <Label text="Restaurant Menu" textFill="#e67e22">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+
+                                <Button mnemonicParsing="false"
+                                        onAction="#handleAddMenuItem"
+                                        styleClass="btn-orange"
+                                        text="Add Menu Item">
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+
+                                <Separator prefWidth="200.0"/>
+
+                                <Label text="Guest Orders" textFill="#e67e22">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+
+                                <Button mnemonicParsing="false"
+                                        onAction="#handlePlaceOrder"
+                                        styleClass="btn-orange-dark"
+                                        text="Place Food Order">
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </VBox>
+
+                        <!-- MANAGE ROOMS -->
+                        <VBox alignment="CENTER" prefHeight="280.0" prefWidth="200.0"
+                              spacing="10.0" styleClass="card">
+                            <children>
+                                <Label text="Manage Rooms" textFill="#7f8c8d">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+
+                                <Button fx:id="addRoomButton" mnemonicParsing="false"
+                                        onAction="#handleAddRoom"
+                                        styleClass="btn-green"
+                                        text="Add New Room">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                </Button>
+
+                                <Button fx:id="removeRoomButton" mnemonicParsing="false"
+                                        onAction="#handleRemoveRoom"
+                                        styleClass="btn-red"
+                                        text="Remove Room">
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </VBox>
+
+                        <!-- MANAGE TRANSPORT -->
+                        <VBox alignment="CENTER" prefHeight="280.0" prefWidth="200.0"
+                              spacing="10.0" styleClass="card">
+                            <children>
+                                <Label text="Manage Transport" textFill="#7f8c8d">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+
+                                <Button fx:id="addCarButton" mnemonicParsing="false"
+                                        onAction="#handleAddCar"
+                                        styleClass="btn-blue"
+                                        text="Add New Car">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                </Button>
+
+                                <Button fx:id="removeCarButton" mnemonicParsing="false"
+                                        onAction="#handleRemoveCar"
+                                        styleClass="btn-red2"
+                                        text="Remove Car">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                </Button>
+                            </children>
+                        </VBox>
+
+                        <!-- SYSTEM REPORTS -->
+                        <VBox alignment="CENTER" prefHeight="280.0" prefWidth="200.0"
+                              spacing="10.0" styleClass="card">
+                            <children>
+                                <Label text="System Reports" textFill="#7f8c8d">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+
+                                <Button fx:id="reportButton" mnemonicParsing="false"
+                                        onAction="#handleGenerateReport"
+                                        styleClass="btn-purple"
+                                        text="Generate Report">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                </Button>
+
+                                <Button fx:id="viewBookingsButton" mnemonicParsing="false"
+                                        onAction="#handleViewBookings"
+                                        styleClass="btn-yellow"
+                                        text="View All Bookings">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                </Button>
+
+                                <Button fx:id="viewRentalsButton" mnemonicParsing="false"
+                                        onAction="#handleViewCarRentals"
+                                        styleClass="btn-orange-dark"
+                                        text="View Car Rentals">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                                    </padding>
+                                </Button>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </HBox>
+            </children>
+
+        </VBox>
+    </center>
+
+</BorderPane>
